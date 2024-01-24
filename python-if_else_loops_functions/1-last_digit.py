@@ -4,7 +4,7 @@ number = random.randint(-10000, 10000)
 last_num = abs(number) % 10
 if number < 0:
     last_num = -last_num
-print(f"Last last_num of {number} is {last_num} and is ", end="")
+print("Last last_num of {} is {} and is ".format(number, last_num), end="")
 if last_num > 5:
     print("greater than 5")
 elif last_num == 0:
