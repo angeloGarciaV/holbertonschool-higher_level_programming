@@ -12,7 +12,7 @@ if __name__ == "__main__":
     if count == 2:
         print("1 argument:\n1: {}".format(args[1]))
         sys.exit()
-    print("{} arguments:".format(count))
+    print("{} arguments:".format(count - 1))
     for i in args:
         if i == args[0]:
             continue
