@@ -3,13 +3,13 @@
 if __name__ == "__main__":
     import sys
 
-    count = len(sys.argv) - 1
+    count = len(sys.argv)
     args = sys.argv
     a = 1
-    if count == 0:
-        print("{} arguments.".format())
-        sys.exit()
     if count == 1:
+        print("0 arguments.")
+        sys.exit()
+    if count == 2:
         print("1 argument:\n1: {}".format(args[1]))
         sys.exit()
     print("{} arguments:".format(count))
