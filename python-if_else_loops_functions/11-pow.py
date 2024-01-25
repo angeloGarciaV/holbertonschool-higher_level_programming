@@ -6,7 +6,8 @@ def pow(a, b):
         c = 1/a
         for i in range(b):
             j *= c
-        return j
-    for i in range(b):
-        j *= a
+        return round(j, 2)
+    else:
+        for i in range(b):
+            j *= a
     return j
