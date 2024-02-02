@@ -47,8 +47,13 @@ class Square:
             self._size = new_size
 
     def my_print(self):
-        for i in range(self._size):
+        """ Method that prints a # square according
+        to the size value
+        """
+        if not self._size:
             print()
-            for j in range(self._size):
-                print("#", end="")
-        print()
+        else:
+            for i in range(self._size):
+                for j in range(self._size):
+                    print("#", end='')
+                print()
