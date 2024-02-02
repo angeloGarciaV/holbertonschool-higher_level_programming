@@ -39,4 +39,9 @@ class Square:
     def size(self, new_size: int):
         """setter for size attribute
         """
-        self._size = new_size
+        if not isinstance(new_size, int):
+            raise TypeError("size must be an integer")
+        elif new_size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self._size = new_size
