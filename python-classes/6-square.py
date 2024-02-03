@@ -10,17 +10,21 @@ class Square:
         self._size = size
         self.position = position
 
-    def area(self):
-        """calculates the area of a square
-
-        Returns:
-            int: the area of the square
+    @property
+    def size(self):
+        """getter for size attribute
         """
-        if not isinstance(self._size, int):
+        return self._size
+
+    @size.setter
+    def size(self, new_size):
+        """setter for size attribute
+        """
+        if not isinstance(new_size, int):
             raise TypeError("size must be an integer")
-        elif self._size < 0:
+        if new_size < 0:
             raise ValueError("size must be >= 0")
-        return self._size**2
+        self._size = new_size
 
     @property
     def position(self):
@@ -44,34 +48,25 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
-    @property
-    def size(self):
-        """getter for size attribute
-
+    def area(self):
+        """calculates the area of a square
         Returns:
-            int: size of the square
+            int: the area of the square
         """
-        return self._size
-
-    @size.setter
-    def size(self, new_size: int):
-        """setter for size attribute
-        """
-        if not isinstance(new_size, int):
-            raise TypeError("size must be an integer")
-        elif new_size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self._size = new_size
+        return self._size**2
 
     def my_print(self):
         """ Method that prints a # square according
         to the size value
         """
-        if not self._size:
+        if self.size == 0:
             print()
         else:
-            for i in range(self._size):
-                for j in range(self._size):
+            for i in range(self.position[1]):
+                print()
+            for i in range(0, self.size):
+                for j in range(self.position[0]):
+                    print("_", end='')
+                for k in range(self.size):
                     print("#", end='')
                 print()
