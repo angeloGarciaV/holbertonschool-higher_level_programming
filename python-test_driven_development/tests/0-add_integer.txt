@@ -1,0 +1,25 @@
+>>> add_integer(4)
+102
+
+>>> add_integer(4, 3)
+7
+
+>>> add_integer(f, 3)
+Traceback (most recent call last):
+  ...
+NameError: name 'f' is not defined
+
+>>> add_integer(3, j)
+Traceback (most recent call last):
+  ...
+NameError: name 'j' is not defined
+
+>>> add_integer()
+Traceback (most recent call last):
+  ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer(4j)
+Traceback (most recent call last):
+  ...
+TypeError: can't convert complex to int
