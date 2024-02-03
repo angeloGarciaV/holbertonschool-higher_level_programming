@@ -13,6 +13,7 @@
 [[1.0]]
 
 >>> matrix_divided(None, None)
+Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
