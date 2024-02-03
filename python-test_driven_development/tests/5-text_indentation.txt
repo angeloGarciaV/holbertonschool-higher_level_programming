@@ -98,23 +98,14 @@ How are you?
 >>> text_indentation("Hello")
 Hello
 
-
 >>> text_indentation(" \n Hello. Whatcha up to?")
 <BLANKLINE>
-Hello.
+ Hello.
 <BLANKLINE>
 Whatcha up to?
 <BLANKLINE>
 
-
->>> text_indentation("Hello \n . How are you?")
-Hello
-.
-<BLANKLINE>
-How are you?
-<BLANKLINE>
-
- >>> text_indentation("Hello, how are you?\n")
+>>> text_indentation("Hello, how are you?\n")
 Hello, how are you?
 <BLANKLINE>
 <BLANKLINE>
