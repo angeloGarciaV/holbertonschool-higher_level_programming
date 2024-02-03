@@ -14,12 +14,32 @@ Traceback (most recent call last):
   ...
 NameError: name 'f' is not defined
 
->>> add_integer(3, j)
+>>> add_integer("f", 3)
 Traceback (most recent call last):
   ...
-NameError: name 'j' is not defined
+TypeError: a must be an integer
+
+>>> add_integer(float('inf'), 5)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
 
 >>> add_integer()
 Traceback (most recent call last):
   ...
 TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer(None)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+>>> add_integer(4, None)
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+>>> add_integer(float('Nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
