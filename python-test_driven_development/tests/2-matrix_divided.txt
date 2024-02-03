@@ -12,6 +12,11 @@
 >>> matrix_divided([[3]], 3)
 [[1.0]]
 
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], "hello")
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+
 >>> matrix_divided(None, None)
 Traceback (most recent call last):
     ...
