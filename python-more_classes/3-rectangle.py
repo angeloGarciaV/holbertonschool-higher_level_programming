@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """Rectangle Class"""
+
+
 class Rectangle:
     """Rectangle Class"""
+
     def __init__(self, width=0, height=0):
         """initialize the rectangle"""
         self.__width = width
@@ -53,4 +56,5 @@ class Rectangle:
         return p
 
     def __str__(self):
+        """Prints the rectangle with #"""
         return "\n".join(["#" * self.width for _ in range(self.height)])
