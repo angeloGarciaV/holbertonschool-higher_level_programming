@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """Rectangle Class"""
+
+
 class Rectangle:
     """Rectangle Class"""
+
     def __init__(self, width=0, height=0):
         """initialize the rectangle"""
         self.__width = width
