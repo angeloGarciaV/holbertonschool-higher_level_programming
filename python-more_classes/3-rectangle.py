@@ -51,3 +51,6 @@ class Rectangle:
         if x == 0 or y == 0:
             return 0
         return p
+
+    def __str__(self):
+        return "\n".join(["#" * self.width for _ in range(self.height)])
