@@ -1,0 +1,29 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> print(bg)
+<7-base_geometry.BaseGeometry object at 0x7e57abd73a00>
+
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+>>> bg.integer_validator(age, 100)
+    ...
+NameError: name 'age' is not defined
+
+>>> bg.integer_validator(100, 100)
+Does Nothing
+
+>>> bg.integer_validator("age", 100)
+input was valid so it does Nothing
+
+>>> bg.integer_validator("age", "not int")
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("Value's name", -1)
+Traceback (most recent call last):
+    ...
+ValueError: Value's name must be greater than 0
