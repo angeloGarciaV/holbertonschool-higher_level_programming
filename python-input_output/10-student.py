@@ -20,6 +20,6 @@ class Student:
     def to_json(self, attrs=None):
         """Returns the dictionary description with simple data structure"""
         if (type(attrs) is list and
-                all(type(itms) == str for itms in attrs)):
+                all(type(itms) is str for itms in attrs)):
             return {j: getattr(self, j) for j in attrs if hasattr(self, j)}
         return self.__dict__
