@@ -3,7 +3,7 @@
 
 
 class MyList(list):
-    """_summary_
+    """Class that inherits from list.
 
     Args:
         list (list): list to be inherited from
