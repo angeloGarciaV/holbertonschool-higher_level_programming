@@ -8,11 +8,11 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """initialize the rectangle with width and height.
-        Counts instances of Rectangle"""
+        """Initializes the rectangle.
+        """
+        Rectangle.number_of_instances += 1
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -61,22 +61,12 @@ class Rectangle:
 
     def __str__(self):
         """Prints the rectangle with #"""
-        x = self.width
-        y = self.height
+        x = self.__width
+        y = self.__height
         if x == 0 or y == 0:
             return ""
         else:
             return "\n".join([str(self.print_symbol) * x for _ in range(y)])
-
-    def __repr__(self):
-        """Returns a string representation of the rectangle"""
-        return "Rectangle({}, {})".format(self.width, self.height)
-
-    def __del__(self):
-        """Prints a message when an instance of Rectangle is deleted
-        and decrements the count of instances of Rectangle"""
-        Rectangle.number_of_instances -= 1
-        print("Bye rectangle...")
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
@@ -93,10 +83,14 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """Returns a new Rectangle instance with width == height == size"""
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("width must be >= 0")
-        elif size == 0:
-            return ""
         return cls(size, size)
+
+    def __repr__(self):
+        """Returns a string representation of the rectangle"""
+        return "Rectangle({}, {})".format(self.width, self.height)
+
+    def __del__(self):
+        """Prints a message when an instance of Rectangle is deleted
+        and decrements the count of instances of Rectangle"""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
