@@ -10,8 +10,8 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         """initialize the rectangle with width and height.
         Counts instances of Rectangle"""
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -96,7 +96,7 @@ class Rectangle:
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError("width must be >= 0")
         elif size == 0:
             return ""
         return cls(size, size)
