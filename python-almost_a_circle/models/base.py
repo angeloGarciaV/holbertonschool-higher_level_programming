@@ -1,9 +1,14 @@
 #!/usr/bin/python3
+"""Module for Base class
+    """
+
 
 class Base:
+    """Base class for all other classes in this project."""
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initializes a new instance of Base."""
         if id != None:
             self.id = id
         else:
