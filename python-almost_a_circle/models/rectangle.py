@@ -20,10 +20,27 @@ class Rectangle(Base):
             y (int, optional): Defaults to 0.
             id (int, optional): id of the rectangle. Defaults to None.
         """
-        self.__width = width
-        self.height = height
-        self.__x = x
-        self.__y = y
+        if type(width) is not int:
+            raise TypeError("width must be an integer")
+        elif width <= 0:
+            raise ValueError("width must be > 0")
+        elif type(height) is not int:
+            raise TypeError("height must be an integer")
+        elif height <= 0:
+            raise ValueError("height must be > 0")
+        elif type(x) is not int:
+            raise TypeError("x must be an integer")
+        elif x < 0:
+            raise ValueError("x must be >= 0")
+        elif type(y) is not int:
+            raise TypeError("y must be an integer")
+        elif y < 0:
+            raise ValueError("y must be >= 0")
+        else:
+            self.__width = width
+            self.height = height
+            self.__x = x
+            self.__y = y
 
         super().__init__(id)
 
@@ -49,7 +66,7 @@ class Rectangle(Base):
         """
         if type(width) is not int:
             raise TypeError("width must be an integer")
-        elif width < 0:
+        elif width <= 0:
             raise ValueError("width must be >= 0")
         if width == 0:
             return ""
@@ -78,7 +95,7 @@ class Rectangle(Base):
         """
         if type(height) is not int:
             raise TypeError("height must be an integer")
-        elif height < 0:
+        elif height <= 0:
             raise ValueError("height must be >= 0")
         if height == 0:
             return ""
@@ -106,7 +123,7 @@ class Rectangle(Base):
         """
         if type(x) is not int:
             raise TypeError("x must be an integer")
-        elif x < 0:
+        elif x <= 0:
             raise ValueError("x must be >= 0")
         if x == 0:
             return ""
@@ -134,7 +151,7 @@ class Rectangle(Base):
         """
         if type(y) is not int:
             raise TypeError("y must be an integer")
-        elif y < 0:
+        elif y <= 0:
             raise ValueError("y must be >= 0")
         if y == 0:
             return ""
