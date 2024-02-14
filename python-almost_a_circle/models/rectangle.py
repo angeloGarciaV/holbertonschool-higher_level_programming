@@ -177,6 +177,10 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Updates the rectangle
+
+        Args:
+            args (tuple): tuple of arguments
+            kwargs (dict): dictionary of arguments
         """
         if args:
             for i, arg in enumerate(args):
