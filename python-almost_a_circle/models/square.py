@@ -28,4 +28,18 @@ class Square(Rectangle):
             string: [Square] (<id>) <x>/<y> - <size>
         """
         return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.height)
+            self.id, self.x, self.y, self.width)
+
+    @property
+    def size(self):
+        """ Getter for size
+
+        Returns:
+            int: size of the square
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        self.width = value
+        self.height = value
