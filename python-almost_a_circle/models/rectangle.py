@@ -214,9 +214,9 @@ class Rectangle(Base):
             dict: dictionary representation of the Rectangle
         """
         return {
+            "y": self.__y,
+            "x": self.__x,
             "id": self.id,
             "width": self.__width,
-            "height": self.__height,
-            "x": self.__x,
-            "y": self.__y
+            "height": self.__height
         }
