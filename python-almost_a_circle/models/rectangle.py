@@ -16,8 +16,8 @@ class Rectangle(Base):
         Args:
             width (int): width of the rectangle
             height (int): height of the rectangle
-            x (int, optional): Defaults to 0.
-            y (int, optional): Defaults to 0.
+            x (int, optional): x position of the rectangle. Defaults to 0.
+            y (int, optional): y position of rectangle. Defaults to 0.
             id (int, optional): id of the rectangle. Defaults to None.
         """
         if type(width) is not int:
@@ -174,3 +174,19 @@ class Rectangle(Base):
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        """Updates the rectangle
+        """
+        if args:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.__width = arg
+                elif i == 2:
+                    self.__height = arg
+                elif i == 3:
+                    self.__x = arg
+                elif i == 4:
+                    self.__y = arg
