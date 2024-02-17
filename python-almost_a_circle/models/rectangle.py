@@ -20,10 +20,10 @@ class Rectangle(Base):
             y (int, optional): y position of rectangle. Defaults to 0.
             id (int, optional): id of the rectangle. Defaults to None.
         """
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
         super().__init__(id)
 
@@ -51,8 +51,6 @@ class Rectangle(Base):
             raise TypeError("width must be an integer")
         elif value <= 0:
             raise ValueError("width must be > 0")
-        if value == 0:
-            return ""
         else:
             self.__width = value
 
@@ -80,8 +78,6 @@ class Rectangle(Base):
             raise TypeError("height must be an integer")
         elif value <= 0:
             raise ValueError("height must be > 0")
-        if value == 0:
-            return ""
         else:
             self.__height = value
 
@@ -194,9 +190,9 @@ class Rectangle(Base):
             dict: dictionary representation of the Rectangle
         """
         return {
-            "y": self.__y,
-            "x": self.__x,
             "id": self.id,
-            "width": self.__width,
-            "height": self.__height
+            "width": self.width,
+            "height": self.height,
+            "y": self.y,
+            "x": self.x
         }
