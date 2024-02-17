@@ -150,29 +150,19 @@ class Rectangle(Base):
             kwargs (dict): dictionary of arguments
         """
         if args:
-            for i, arg in enumerate(args):
-                if i == 0:
-                    self.id = arg
-                elif i == 1:
-                    self.__width = arg
-                elif i == 2:
-                    self.__height = arg
-                elif i == 3:
-                    self.__x = arg
-                elif i == 4:
-                    self.__y = arg
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
         else:
             for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                elif key == "width":
-                    self.__width = value
-                elif key == "height":
-                    self.__height = value
-                elif key == "x":
-                    self.__x = value
-                elif key == "y":
-                    self.__y = value
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle

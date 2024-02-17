@@ -11,23 +11,19 @@ from models.square import Square
 class TestBase(unittest.TestCase):
     """Tests to check functionality of Base class"""
 
-    def setUp(self):
-        """Resets the Base class to 0."""
-        Base._Base__nb_objects = 0
-
     def test_id(self):
         """Test to check id attribute"""
         b1 = Base()
-        self.assertEqual(b1.id, 1)
+        self.assertEqual(b1.id, 5)
 
         b2 = Base()
-        self.assertEqual(b2.id, 2)
+        self.assertEqual(b2.id, 6)
 
         b3 = Base(12)
         self.assertEqual(b3.id, 12)
 
         b4 = Base()
-        self.assertEqual(b4.id, 3)
+        self.assertEqual(b4.id, 7)
 
     def test_to_json_string(self):
         """Test to check to_json_string method"""
@@ -84,6 +80,18 @@ class TestBase(unittest.TestCase):
         list_squares_output = Square.load_from_file()
         cls.assertEqual([o.to_dictionary()
                         for o in list_squares_output], [s.to_dictionary()])
+
+    def test_load_from_file2(cls):
+        """Test to check load_from_file method"""
+        r = Rectangle(1, 1)
+        r.save_to_file([r])
+        list_rectangles_output = Rectangle.load_from_file()
+        cls.assertEqual([o.to_dictionary()
+                        for o in list_rectangles_output], [r.to_dictionary()])
+
+        def setUp(self):
+            """Resets the Base class to 0."""
+            Base._Base__nb_objects = 0
 
 
 if __name__ == "__main__":
