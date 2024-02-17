@@ -20,10 +20,10 @@ class Rectangle(Base):
             y (int, optional): y position of rectangle. Defaults to 0.
             id (int, optional): id of the rectangle. Defaults to None.
         """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
         super().__init__(id)
 
