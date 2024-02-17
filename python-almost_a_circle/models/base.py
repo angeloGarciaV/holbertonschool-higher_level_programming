@@ -2,6 +2,7 @@
 """Module for Base class
     """
 import json
+import os
 
 
 class Base:
@@ -86,8 +87,11 @@ class Base:
         """
         my_list = []
         filename = cls.__name__ + ".json"
-        with open(filename, encoding='utf-8') as f:
-            list_dict = cls.from_json_string(f.read())
-        for dict in list_dict:
-            my_list.append(cls.create(**dict))
+        if not os.path.exists(filename):
+            return my_list
+        else:
+            with open(filename, encoding='utf-8') as f:
+                list_dict = cls.from_json_string(f.read())
+            for dict in list_dict:
+                my_list.append(cls.create(**dict))
         return my_list
