@@ -3,6 +3,7 @@
     """
 import json
 import os
+import turtle
 
 
 class Base:
@@ -95,3 +96,14 @@ class Base:
             for dict in list_dict:
                 my_list.append(cls.create(**dict))
         return my_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        raph = turtle.Turtle()
+        raph.color('red', 'blue')
+        raph.begin_fill()
+        for i in range(4):
+            raph.forward()
+            raph.left(list_rectangles[1])
+        raph.end_fill()
+        turtle.done()
