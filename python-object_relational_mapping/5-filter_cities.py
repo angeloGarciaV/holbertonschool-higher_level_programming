@@ -9,15 +9,14 @@ if __name__ == "__main__":
                          port=3306)
     cur = db.cursor()
     cur.execute("""
-                USE hbtn_0e_4_usa;
                 SELECT cities.name FROM cities
                 INNER JOIN states
                 ON cities.state_id = states.id
-                WHERE states.name LIKE BINARY %s
+                WHERE states.name LIKE %s
                 ORDER BY cities.id ASC;
-                """, {'state_name': argv[4]})
+                """, (argv[4],))
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    city_names = ', '.join([row[0] for row in rows])
+    print(city_names)
     cur.close()
     db.close()
