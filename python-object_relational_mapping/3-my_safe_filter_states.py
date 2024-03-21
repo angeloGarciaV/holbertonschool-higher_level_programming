@@ -5,7 +5,6 @@
 import MySQLdb
 from sys import argv
 
-srch = argv[4]
 
 if __name__ == "__main__":
     db = MySQLdb.connect(host='localhost', user=argv[1],
@@ -13,7 +12,7 @@ if __name__ == "__main__":
                          port=3306)
     cur = db.cursor()
     cur.execute("""SELECT * FROM states
-                WHERE name LIKE %s ORDER BY id ASC""", (srch+'%',))
+                WHERE name LIKE %s ORDER BY id ASC""", (argv[4]+'%',))
     rows = cur.fetchall()
     for row in rows:
         print(row)
