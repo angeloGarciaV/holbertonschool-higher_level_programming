@@ -12,7 +12,7 @@ if __name__ == "__main__":
                 USE hbtn_0e_4_usa;
                 SELECT cities.name FROM cities
                 INNER JOIN states
-                ON state_id = states.id
+                ON cities.state_id = states.id
                 WHERE states.name LIKE BINARY %s
                 ORDER BY cities.id ASC;
                 """, {'state_name': argv[4]})
