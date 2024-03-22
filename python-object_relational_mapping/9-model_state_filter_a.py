@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""prints the first State object from the database"""
+""" lists all State objects that contain the letter a"""
 from sys import argv
 from model_state import Base, State
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, or_
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
@@ -12,8 +12,9 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).first()
+    states = session.query(State).filter(
+        or_(State.name.like('%a%'), State.name.like('%A%')))
 
-    if states:
-        print("{}: {}".format(states.id, states.name))
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
     session.close()
