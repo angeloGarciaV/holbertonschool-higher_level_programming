@@ -5,8 +5,7 @@ Contains State class and Base, an instance of declarative_base()
 from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 
-mymetadata = MetaData()
-Base = declarative_base(metadata=mymetadata)
+Base = declarative_base()
 
 
 class State(Base):
@@ -15,8 +14,4 @@ class State(Base):
     """
     __tablename__ = 'states'
     id = Column(Integer, unique=True, nullable=False, primary_key=True)
-    name = Column(String(128), nullable=False)
-
-    def __init__(self, id, name):
-        self.id = id
-        self.name = name
+    name = Column(String(128), unique=True, nullable=False)
