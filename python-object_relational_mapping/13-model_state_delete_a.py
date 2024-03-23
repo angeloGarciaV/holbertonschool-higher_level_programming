@@ -15,7 +15,7 @@ if __name__ == '__main__':
     session = Session()
 
     states = session.query(State).filter(
-        or_(State.name.like('%a%'), State.name.like('%A%'))).all()
+        or_(State.name.like('%a%'), State.name.like('A%'))).all()
     for state in states:
         session.delete(state)
     session.commit()
